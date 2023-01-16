@@ -32,11 +32,22 @@ module.exports = {
   devServer: {
     port: port,
     open: true,
+    proxy: {
+      '/api': {
+        target: process.env.VUE_APP_BASE_API,
+        changeOrigin: true,
+        ws: true,
+        logLevel: 'debug',
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
     overlay: {
       warnings: false,
       errors: true
-    },
-    before: require('./mock/mock-server.js')
+    }
+    // before: require('./mock/mock-server.js') // 暂时注释mock方式来实现
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
