@@ -149,6 +149,65 @@ export const constantRoutes = [
     ]
   },
 
+  {
+    path: '/formtable',
+    component: Layout,
+    redirect: '/formtable',
+    name: 'Formtable',
+    meta: {
+      title: 'Formtable',
+      icon: 'nested'
+    },
+    children: [
+      {
+        path: 'formtable1',
+        component: () => import('@/views/nested/menu1/index'), // Parent router-view
+        name: 'formtable1',
+        meta: { title: 'formtable1' }
+        // children: [
+        //   {
+        //     path: 'menu1-1',
+        //     component: () => import('@/views/nested/menu1/menu1-1'),
+        //     name: 'Menu1-1',
+        //     meta: { title: 'Menu1-1' }
+        //   },
+        //   {
+        //     path: 'menu1-2',
+        //     component: () => import('@/views/nested/menu1/menu1-2'),
+        //     name: 'Menu1-2',
+        //     meta: { title: 'Menu1-2' },
+        //     children: [
+        //       {
+        //         path: 'menu1-2-1',
+        //         component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+        //         name: 'Menu1-2-1',
+        //         meta: { title: 'Menu1-2-1' }
+        //       },
+        //       {
+        //         path: 'menu1-2-2',
+        //         component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+        //         name: 'Menu1-2-2',
+        //         meta: { title: 'Menu1-2-2' }
+        //       }
+        //     ]
+        //   },
+        //   {
+        //     path: 'menu1-3',
+        //     component: () => import('@/views/nested/menu1/menu1-3'),
+        //     name: 'Menu1-3',
+        //     meta: { title: 'Menu1-3' }
+        //   }
+        // ]
+      },
+      {
+        path: 'formtable2',
+        component: () => import('@/views/formTable/formTable2/index'),
+        name: 'Formtable2',
+        meta: { title: 'Formtable2' }
+      }
+    ]
+  },
+
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
